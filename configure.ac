@@ -151,6 +151,13 @@ AC_ARG_ENABLE([dex],
     CFLAGS="$CFLAGS -DDEX_MODULE"
   fi])
 
+AC_ARG_ENABLE([pdf],
+  [AS_HELP_STRING([--enable-pdf], [enable pdf module])],
+  [if test x$enableval = xyes; then
+    build_pdf_module=true
+    CFLAGS="$CFLAGS -DPDF_MODULE"
+  fi])
+
 AC_ARG_ENABLE([debug-dex],
   [AS_HELP_STRING([--enable-debug-dex], [enable dex module debugging])],
   [if test x$enableval = xyes; then
@@ -289,6 +296,7 @@ AM_CONDITIONAL([DOTNET_MODULE], [test x$build_dotnet_module = xtrue])
 AM_CONDITIONAL([MACHO_MODULE], [test x$build_macho_module = xtrue])
 AM_CONDITIONAL([GCC], [test "x$GCC" = xyes])
 AM_CONDITIONAL([DEX_MODULE], [test x$build_dex_module = xtrue])
+AM_CONDITIONAL([PDF_MODULE], [test x$build_pdf_module = xtrue])
 AM_CONDITIONAL([DEBUG_DEX_MODULE], [test x$debug_dex_module = xtrue])
 
 AM_CONDITIONAL([USE_WINDOWS_PROC], [test x$proc_interface = xwindows ])

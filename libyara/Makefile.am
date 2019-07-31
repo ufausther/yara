@@ -32,6 +32,10 @@ if DEX_MODULE
 MODULES += modules/dex.c
 endif
 
+if PDF_MODULE
+MODULES += modules/pdf.c
+endif
+
 #
 # Add your modules here:
 #
